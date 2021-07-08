@@ -1,11 +1,13 @@
 import React from 'react';
 import './Landing.css';
 import Header from '../../Components/Header/Header'
+import AuthForm from '../../Components/AuthForm/AuthForm'
 
 const Landing = () => {
   return (
     <>
       <Header />
+      <AuthForm />
       <main className='loginLayout'>
         <section className='loginCard'>
           <h2>Learn all about Weather Vine Here:</h2>
