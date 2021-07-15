@@ -10,4 +10,60 @@
 .title {
   font-size: 2em;
   font-weight: bold;
+  justify-text: center;
+}
+
+.userName {
+  font-size: 1.5em;
+  margin-left: 20vw;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (min-width: 1500px){
+  .headerLayout {
+    height: 12vh;
+    color: red;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .userName {
+    font-size: 1em;
+  }
+}
+@media only screen and (max-width: 1007px){
+  .headerLayout {
+    height: 12vh;
+    color: green;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .userName {
+    font-size: 1em;
+  }
+}
+@media only screen and (max-width: 576px){
+  .headerLayout {
+    height: 12vh;
+    color: blue;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .userName {
+    font-size: 1em;
+  }
 }
