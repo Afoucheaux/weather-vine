@@ -5,7 +5,7 @@ import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
-import { HelperContextProvider } from './Context/HelperContext';
+import { StylingContextProvider } from './Context/StylingContext';
 
 ReactDOM.render(
   <Auth0Provider
@@ -13,9 +13,9 @@ ReactDOM.render(
     clientId="A3Zo1bv45OhHnUd9pl1aTWwgSZR8VMLG"
     redirectUri={window.location.origin}>
     <BrowserRouter>
-      <HelperContextProvider>
+      <StylingContextProvider>
         <App />
-      </HelperContextProvider>
+      </StylingContextProvider>
     </BrowserRouter>
   </Auth0Provider>,
   document.getElementById('root')

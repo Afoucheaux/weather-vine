@@ -6,20 +6,33 @@ import './Dashboard.css';
 import Header from '../../Components/Header/Header';
 import { getWines } from '../../apiCalls';
 import WineSearch from '../../Components/WineSearch/WineSearch'
-import { HelperContext } from '../../Context/HelperContext';
+import { StylingContext } from '../../Context/StylingContext';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useHistory } from 'react-router-dom';
 
 
 const Dashboard = () => {
   // const [wineStyle, setWineStyle] = useState('')
   // const [wineVintage, setWineVintage] = useState('')
   const [wineList, setWineList] = useState([])
-  const { checkLoggedIn } = useContext(HelperContext);
-  const { user, isAuthenticated } = useAuth0();
+  const { setToHide } = useContext(StylingContext);
+  const { user } = useAuth0();
+  const history = useHistory();
 
   useEffect(() => {
     checkLoggedIn()
   },[user])
+
+  const checkLoggedIn = () => {
+    if (user === undefined || user === false) {
+      setToHide('hidden')
+      history.push('/')
+      return
+    } else {
+      setToHide('')
+      history.push('/Dashboard')
+    }
+  }
 
   // useEffect(() => {
   //   getWines(wineStyle, wineVintage)

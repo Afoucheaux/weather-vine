@@ -1,17 +1,29 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useEffect, useContext } from 'react';
 import './Landing.css';
 import Header from '../../Components/Header/Header';
 import AuthForm from '../../Components/AuthForm/AuthForm';
 import { useAuth0 } from '@auth0/auth0-react';
-import { HelperContext } from '../../Context/HelperContext';
+import { useHistory } from 'react-router-dom';
+import { StylingContext } from '../../Context/StylingContext';
 
 const Landing = () => {
-  const { user, isAuthenticated } = useAuth0();
-  const { checkLoggedIn } = useContext(HelperContext);
+  const { user } = useAuth0();
+  const history = useHistory();
+  const { setToHide } = useContext(StylingContext);
 
   useEffect(() => {
-    checkLoggedIn()
+    checkLoggedIn(user)
   },[user])
+
+  const checkLoggedIn = (user) => {
+    if (user === undefined || user === false) {
+      setToHide('hidden')
+      return
+    } else {
+      setToHide('')
+      history.push('/Dashboard')
+    }
+  }
 
   return (
     <>
